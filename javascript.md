@@ -1,10 +1,8 @@
 # 错题集合
 
-## 写在前面
-
-本篇文章仅记录本人平时刷题时犯的错误。内含大量基础题，因为想要夯实基础，所以平时会多刷一些基础题。
 
 
+**前言**：本篇笔记仅记录本人平时刷题时犯的错误。
 
 - 代码输出
 
@@ -84,3 +82,30 @@
   >   第三个输出：匿名函数的执行是全局的。匿名函数this指向window.
   >
   >   第三个输出：因为匿名函数所处的上下文中没有self，所以通过作用域链向上查找，从包含它的父函数中找到了指向myObject对象的self
+  
+- 代码输出
+
+  ```js
+  function test() {
+    var n = 4399;
+    function add() {
+      n++;
+      console.log(n);
+    }
+    return { n: n, add: add };
+  }
+  var result = test();
+  var result2 = test();
+  result.add();
+  result.add();
+  console.log(result.n);
+  result2.add();
+  
+  //4400
+  //4401 
+  //4399
+  //4400
+  ```
+
+  
+
